@@ -1,11 +1,20 @@
 import React from 'react';
-import logo from './logo.svg';
+import styled from "styled-components";
+
+const Title = styled.h1`
+  font-size: 64px;
+  color: darkorchid;
+  p {
+    font-size: 12px;
+    color: aqua;
+  }
+`
 
 export function App() {
   return (
-    <div className="App">
-        <h1>Hello world</h1>
-    </div>
+    <Title>
+       Hello world <p>TESTANDO DENTRO DO STYLED</p>
+    </Title>
   );
 }
 
