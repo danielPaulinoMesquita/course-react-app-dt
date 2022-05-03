@@ -28,7 +28,7 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   
-  // REM =  1rem = 16px  (It's calculate to proportional size of elemnts)
+  // REM =  1rem = 16px  (It's calculate to proportional size of elements)
   
   body{
     background: var(--background);
