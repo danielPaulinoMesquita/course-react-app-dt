@@ -9,7 +9,6 @@ export function App() {
         <>
             <Header/>
             <Dashboard/>
-            <h1>Hello world</h1>
             <GlobalStyle/>
         </>
     );
