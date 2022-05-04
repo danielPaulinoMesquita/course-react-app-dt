@@ -1,7 +1,5 @@
-# Getting Started with Create React App
-
 # You can create one api fake 
-##to simulate requests on back-end
+## to simulate requests on back-end
 
 Some apis mocking library for this cause:
 
@@ -9,6 +7,6 @@ Some apis mocking library for this cause:
 * Mirage JS: https://miragejs.com/docs/getting-started/introduction/
 * MSW - mock service worker: https://mswjs.io/
 
-###This Application we use Mirage JS
+### This Application we use Mirage JS
 #### Mirage was installed with comand line:
 * yarn add miragejs
