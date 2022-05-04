@@ -14,26 +14,28 @@ export const Container = styled.div`
       text-align: left;
       line-height: 1.5rem;
     }
+    
+    tbody {
+      td {
+        padding: 1rem 2rem;
+        border: 0;
+        background: var(--shape);
+        color: var(--text-body);
 
-    td {
-      padding: 1rem 2rem;
-      border: 0;
-      background: var(--shape);
-      color: var(--text-body);
-      border-radius: 0.5rem;
-      
-      &:first-child {
-        color: var(--text-title);
-      }
-      
-      &.deposit{
-        color: var(--green);
-      }
-      
-      &.withdrawn {
-        color: var(--red);
+        &:first-child {
+          color: var(--text-title);
+        }
+
+        &.deposit{
+          color: var(--green);
+        }
+
+        &.withdrawn {
+          color: var(--red);
+        }
       }
     }
+    
   }
   
 `;
