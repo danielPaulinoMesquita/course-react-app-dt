@@ -9,6 +9,22 @@ export function Summary(){
     const { transactions } = useContext(TransactionsContext);
     console.log('transactions Summary', transactions)
 
+    const totalDeposits = transactions.reduce((tInitial, tCurrent) => {
+        if (tCurrent.type === 'deposit'){
+            return tInitial + tCurrent.amount;
+        }
+
+        return tInitial;
+    },0)
+
+    const totalOutcomeImg = transactions.reduce((tInitial, tCurrent) => {
+        if (tCurrent.type === 'withdrawn'){
+            return tInitial + tCurrent.amount;
+        }
+
+        return tInitial;
+    },0)
+
     return (
         <Container>
             <div>
@@ -16,14 +32,14 @@ export function Summary(){
                     <p>Entradas</p>
                     <img src={incomeImg} alt="Entradas"/>
                 </header>
-                <strong>R$1000,00</strong>
+                <strong>{totalDeposits}</strong>
             </div>
             <div>
                 <header>
                     <p>Saídas</p>
                     <img src={outcomeImg} alt="Saidas"/>
                 </header>
-                <strong>- 5000,00</strong>
+                <strong>- {totalOutcomeImg}</strong>
             </div>
             <div className="background-total">
                 <header>
