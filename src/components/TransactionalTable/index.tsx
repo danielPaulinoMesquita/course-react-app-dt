@@ -3,7 +3,8 @@ import {useContext} from "react";
 import {TransactionsContext} from "../../TransactionsContext";
 
 export function TransactionalTable(){
-    const transactions = useContext(TransactionsContext);
+    // destructuring to get only transactions
+    const {transactions} = useContext(TransactionsContext);
 
     return (
         <Container>
