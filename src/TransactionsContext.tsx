@@ -54,8 +54,14 @@ export function TransactionsProvider( {children} : TransactionProviderProps) {
     },[]);
 
     // Name of function must be equal name declared on TransactionContextData
-    function createNewTransaction(transactionalInput: TransactionalInput) {
-        api.post('/transactions', transactionalInput);
+    async function createNewTransaction(transactionalInput: TransactionalInput) {
+       const response = await api.post('/transactions', transactionalInput);
+       const { transaction } = response.data;
+
+       setTransactions([
+           ...transactions,
+           transaction,
+       ])
     }
 
     return (
