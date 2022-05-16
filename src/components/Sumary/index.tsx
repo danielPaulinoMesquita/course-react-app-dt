@@ -9,21 +9,21 @@ export function Summary(){
     const { transactions } = useContext(TransactionsContext);
     console.log('transactions Summary', transactions)
 
-    const totalDeposits = transactions.reduce((tInitial, tCurrent) => {
-        if (tCurrent.type === 'deposit'){
-            return tInitial + tCurrent.amount;
+   const summary = transactions.reduce((initial, current) => {
+        if(current.type === 'deposit'){
+            initial.deposits += current.amount;
+            initial.total += current.amount;
+
+        }else {
+            initial.withdraws += current.amount;
+            initial.total -= current.amount;
         }
-
-        return tInitial;
-    },0)
-
-    const totalOutcomeImg = transactions.reduce((tInitial, tCurrent) => {
-        if (tCurrent.type === 'withdrawn'){
-            return tInitial + tCurrent.amount;
-        }
-
-        return tInitial;
-    },0)
+        return initial;
+   }, {
+       deposits:0,
+       withdraws:0,
+       total:0
+   });
 
     return (
         <Container>
@@ -32,21 +32,36 @@ export function Summary(){
                     <p>Entradas</p>
                     <img src={incomeImg} alt="Entradas"/>
                 </header>
-                <strong>{totalDeposits}</strong>
+                <strong>
+                    {new Intl.NumberFormat('pt-BR', {
+                        style:'currency',
+                        currency:'BRL',
+                    }).format(summary.deposits)}
+                </strong>
             </div>
             <div>
                 <header>
                     <p>Saídas</p>
                     <img src={outcomeImg} alt="Saidas"/>
                 </header>
-                <strong>- {totalOutcomeImg}</strong>
+                <strong>
+                    {new Intl.NumberFormat('pt-BR', {
+                        style:'currency',
+                        currency:'BRL',
+                    }).format(summary.withdraws)}
+                </strong>
             </div>
             <div className="background-total">
                 <header>
                     <p>Total</p>
                     <img src={totalImg} alt="Total"/>
                 </header>
-                <strong>R$1000,00</strong>
+                <strong>
+                    {new Intl.NumberFormat('pt-BR',{
+                        style: 'currency',
+                        currency: 'BRL'
+                    }).format(summary.total)}
+                </strong>
             </div>
         </Container>
     )
