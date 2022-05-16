@@ -1,12 +1,11 @@
 import {Container} from "./styles";
 import {Summary} from "../Sumary";
 import {TransactionalTable} from "../TransactionalTable";
-import React, {useContext} from "react";
-import {TransactionsContext} from "../../TransactionsContext";
+import React from "react";
+import {useTransaction} from "../../hooks/useTransactions";
 
 export function Dashboard() {
-    const data = useContext(TransactionsContext);
-
+    const data = useTransaction();
     console.log('context info: ', data);
 
     return (
